@@ -1,7 +1,10 @@
 package algorithm.sort;
-import printer.*;
-import util.TypeConversionUtil;
+
 import org.testng.annotations.Test;
+import printer.IntegerPrinter;
+import printer.Printer;
+import util.TypeConversionUtil;
+
 /**
  * Created by huzefa on 11/22/16.
  */
@@ -14,11 +17,11 @@ public class QuickSortTest {
         Sorter sorter = new QuickSort();
         Printer printer = new IntegerPrinter();
 
-        int[] array = {1,4,7,2,9,14,8,20};
+        int[] array = {1, 4, 7, 2, 9, 14, 8, 20};
         Integer[] intArray = TypeConversionUtil.convertIntArrayToIntegerArray(array);
         printer.printBefore(intArray);
 
-        sorter.sort(array, 0, array.length-1);
+        sorter.sort(array, 0, array.length - 1);
         intArray = TypeConversionUtil.convertIntArrayToIntegerArray(array);
         printer.printAfter(intArray);
 

@@ -9,7 +9,7 @@ public class TypeConversionUtil {
     public static Integer[] convertIntArrayToIntegerArray(int[] primitiveArray) {
         Integer[] integerArray = new Integer[primitiveArray.length];
 
-        for(int i = 0; i<primitiveArray.length; i++) {
+        for (int i = 0; i < primitiveArray.length; i++) {
             integerArray[i] = Integer.valueOf(primitiveArray[i]);
         }
         return integerArray;
