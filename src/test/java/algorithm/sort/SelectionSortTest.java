@@ -6,17 +6,16 @@ import printer.Printer;
 import util.TypeConversionUtil;
 
 /**
- * Test QuickSort
+ * Test SelectionSort
  */
-public class QuickSortTest {
+public class SelectionSortTest {
 
-    //TODO - Add @Before and @After methods
-    //TODO - Add Assertions
     @Test
-    public void testQuickSort() {
-        Sorter sorter = new QuickSort();
+    public void testSelectionSort() {
+        Sorter sorter = new SelectionSort();
         Printer printer = new IntegerPrinter();
 
+        printer.printAlgorithmName("SelectionSort");
         int[] array = {1, 4, 7, 2, 9, 14, 8, 20};
         Integer[] intArray = TypeConversionUtil.convertIntArrayToIntegerArray(array);
         printer.printBefore(intArray);

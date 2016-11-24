@@ -14,14 +14,18 @@ public class IntegerPrinter implements Printer<Integer> {
     }
 
     public void printBefore(Integer[] array) {
-        System.out.println();
         System.out.print("Before : ");
         print(array);
     }
 
     public void printAfter(Integer[] array) {
-        System.out.println();
         System.out.print("After : ");
         print(array);
+    }
+
+    public void printAlgorithmName(String algorithmName) {
+        System.out.println("****************************");
+        System.out.println("********** "+algorithmName+ " *********"); //Pretify this
+        System.out.println("****************************");
     }
 }

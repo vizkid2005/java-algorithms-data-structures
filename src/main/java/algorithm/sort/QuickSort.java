@@ -1,15 +1,11 @@
 package algorithm.sort;
 
+import static util.CommonUtil.swap;
+
 /**
- * QuickSort implmentation
+ * QuickSort implementation
  */
 public class QuickSort implements Sorter {
-
-    public static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
 
     public int[] sort(int[] array, int start, int end) {
 

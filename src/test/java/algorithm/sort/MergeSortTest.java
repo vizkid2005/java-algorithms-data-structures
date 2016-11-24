@@ -16,7 +16,7 @@ public class MergeSortTest {
     public void testMergeSortWithEvenNumberOfElements() {
         Sorter sorter = new MergeSort();
         Printer printer = new IntegerPrinter();
-
+        printer.printAlgorithmName("MergeSort");
         int[] array = {1, 4, 7, 2, 9, 14, 8, 20};
         Integer[] intArray = TypeConversionUtil.convertIntArrayToIntegerArray(array);
         printer.printBefore(intArray);
@@ -31,6 +31,7 @@ public class MergeSortTest {
     public void testMergeSortWithEvenOddOfElements() {
         Sorter sorter = new MergeSort();
         Printer printer = new IntegerPrinter();
+        printer.printAlgorithmName("MergeSort");
 
         int[] array = {1, 4, 7, 2, 9, 14, 8};
         Integer[] intArray = TypeConversionUtil.convertIntArrayToIntegerArray(array);
