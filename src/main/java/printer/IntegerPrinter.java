@@ -25,7 +25,7 @@ public class IntegerPrinter implements Printer<Integer> {
 
     public void printAlgorithmName(String algorithmName) {
         System.out.println("****************************");
-        System.out.println("********** "+algorithmName+ " *********"); //Pretify this
+        System.out.println("********** " + algorithmName + " *********"); //Pretify this
         System.out.println("****************************");
     }
 }

@@ -7,6 +7,8 @@ public interface Printer<E> {
     void print(E[] array);
 
     void printBefore(E[] array);
+
     void printAfter(E[] array);
+
     void printAlgorithmName(String algorithmName);
 }
