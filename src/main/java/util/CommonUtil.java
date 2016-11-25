@@ -3,10 +3,10 @@ package util;
 /**
  * Some common utility methods required by all algorithms
  */
-public class CommonUtil {
+public class CommonUtil<E> {
 
-    public static void swap(int[] array, int i, int j) {
-        int temp = array[i];
+    public void swap(E[] array, int i, int j) {
+        E temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }

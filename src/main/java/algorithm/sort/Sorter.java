@@ -1,9 +1,11 @@
 package algorithm.sort;
 
-/**
- * Created by huzefa on 11/22/16.
- */
-public interface Sorter {
+import java.util.Comparator;
 
-    int[] sort(int[] array, int start, int end);
+/**
+ * This interface uses generics to allow sorting of any type of data with use of its comparator.
+ */
+public interface Sorter<E> {
+
+    E[] sort(E[] array, Comparator comparator, int start, int end);
 }

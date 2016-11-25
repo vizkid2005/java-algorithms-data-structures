@@ -1,38 +1,46 @@
 package algorithm.sort;
 
-import static util.CommonUtil.swap;
+import util.CommonUtil;
+
+import java.util.Comparator;
+
 
 /**
  * QuickSort implementation
  */
-public class QuickSort implements Sorter {
+public class QuickSort<E> implements Sorter<E> {
 
-    public int[] sort(int[] array, int start, int end) {
+    CommonUtil commonUtil;
+
+    public QuickSort() {
+        commonUtil = new CommonUtil();
+    }
+    public E[] sort(E[] array, Comparator comparator, int start, int end) {
 
         //Base case | Termination condition for recursion
         if (start >= end) {
             return array;
         }
 
-        int pivotIndex = partition(array, start, end);
-        sort(array, start, pivotIndex - 1);
-        sort(array, pivotIndex + 1, end);
+        int pivotIndex = partition(array, comparator, start, end);
+        sort(array, comparator, start, pivotIndex - 1);
+        sort(array, comparator, pivotIndex + 1, end);
 
         return array;
     }
 
-    public int partition(int[] array, int start, int end) {
-        int pivotElement = array[end];
+    public int partition(E[] array, Comparator comparator, int start, int end) {
+        E pivotElement = array[end];
         int pivotIndex = start;
 
         for (int i = start; i < end; i++) {
-            if (array[i] < pivotElement) {
-                swap(array, i, pivotIndex);
+            if (comparator.compare(array[i], pivotElement) <0 ) {
+                commonUtil.swap(array, i, pivotIndex);
                 pivotIndex++;
             }
         }
 
-        swap(array, pivotIndex, end);
+        commonUtil.swap(array, pivotIndex, end);
         return pivotIndex;
 
     }

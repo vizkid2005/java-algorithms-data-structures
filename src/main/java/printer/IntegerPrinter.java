@@ -3,9 +3,9 @@ package printer;
 /**
  * Created by huzefa on 11/22/16.
  */
-public class IntegerPrinter implements Printer<Integer> {
+public class IntegerPrinter<E> implements Printer<E> {
 
-    public void print(Integer[] array) {
+    public void print(E[] array) {
 
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + "  ");
@@ -13,12 +13,12 @@ public class IntegerPrinter implements Printer<Integer> {
         System.out.println();
     }
 
-    public void printBefore(Integer[] array) {
+    public void printBefore(E[] array) {
         System.out.print("Before : ");
         print(array);
     }
 
-    public void printAfter(Integer[] array) {
+    public void printAfter(E[] array) {
         System.out.print("After : ");
         print(array);
     }

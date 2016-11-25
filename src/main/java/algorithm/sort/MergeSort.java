@@ -1,11 +1,13 @@
 package algorithm.sort;
 
+import java.util.Comparator;
+
 /**
  * An implementation of Merge Sort
  */
-public class MergeSort implements Sorter {
+public class MergeSort<E> implements Sorter<E> {
 
-    public int[] sort(int[] inputArray, int start, int end) {
+    public E[] sort(E[] inputArray, Comparator comparator, int start, int end) {
 
         //Base condition or termination condition for recursion
         if (inputArray.length < 2) {
@@ -16,8 +18,8 @@ public class MergeSort implements Sorter {
         int midPoint = inputArray.length / 2;
 
         //We allocate 2 more arrays to sort the split halves
-        int[] left = new int[midPoint];
-        int[] right = new int[inputArray.length - midPoint];
+        E[] left = (E[]) new Object[midPoint];
+        E[] right = (E[]) new Object[inputArray.length - midPoint];
 
         //Assign values to the left half
         for (int i = 0; i < midPoint; i++) {
@@ -30,15 +32,15 @@ public class MergeSort implements Sorter {
         }
 
         //Call the sort function recursively on the 2 halves
-        sort(left, 0, left.length - 1);
-        sort(right, 0, right.length - 1);
+        sort(left, comparator, 0, left.length - 1);
+        sort(right, comparator, 0, right.length - 1);
 
-        merge(left, right, inputArray);
+        merge(left, right, inputArray, comparator);
 
         return inputArray;
     }
 
-    public void merge(int[] left, int[] right, int[] inputArray) {
+    public void merge(E[] left, E[] right, E[] inputArray, Comparator comparator) {
 
         int leftLength = left.length;
         int rightLength = right.length;
@@ -50,7 +52,7 @@ public class MergeSort implements Sorter {
 
         //While both arrays have elements to be put in sorted order
         while (i < leftLength && j < rightLength) {
-            if (left[i] <= right[j]) {
+            if (comparator.compare(left[i],right[j]) < 0) {
                 inputArray[k] = left[i];
                 i++;
             } else {
