@@ -21,5 +21,19 @@ public class BinarySearchTreeTest {
         bst.insert(23);
     }
 
+    @Test
+    public void testRecursiveInsert() {
+        BinarySearchTree bst = new BinarySearchTree();
+        bst.insertRecursive(15);
+        bst.insertRecursive(10);
+        bst.insertRecursive(20);
+        bst.insertRecursive(5);
+        bst.insertRecursive(11);
+        bst.insertRecursive(16);
+        bst.insertRecursive(25);
+        bst.insertRecursive(12);
+        bst.insertRecursive(23);
+    }
+
 
 }

@@ -19,10 +19,41 @@ public class BinarySearchTree {
         this.root = root;
     }
 
+    /**
+     * Wrapper for inserting nodes recursively in a BST
+     *
+     * @param data
+     */
+    public void insertRecursive(int data) {
+        this.root = recursiveInsert(this.root, data);
+    }
+
+    /**
+     * Recursive implementation of inserting nodes in a BST
+     *
+     * @param node
+     * @param data
+     * @return
+     */
+    private BSTNode recursiveInsert(BSTNode node, int data) {
+        //Base Condition
+        if (node == null) {
+            return new BSTNode(data);
+        }
+        //If data is less than value of the node it belongs in the left subtree
+        else if (data <= node.getData()) {
+            node.setLeftChild(recursiveInsert(node.getLeftChild(), data));
+        }
+        //The only other option is to insert it to the right
+        else {
+            node.setRightChild(recursiveInsert(node.getRightChild(), data));
+        }
+        return node;
+    }
+
     public void insert(int data) {
         if (root == null) {
-            BSTNode node = new BSTNode(data);
-            this.root = node;
+            this.root = new BSTNode(data);
             return;
         }
 
@@ -50,11 +81,69 @@ public class BinarySearchTree {
         }
     }
 
-    public void traverseInOrderTraverse() {
-        if(this.root == null) {
-            System.out.println("Emtpty Tree");
+    /**
+     * A wrapper over the private inorder traversal method
+     */
+    public void inOrderTraversal() {
+        System.out.println();
+        traverseInOrder(this.root);
+    }
+
+    /**
+     * A wrapper over the preorder traversal method
+     */
+    public void preOrderTraversal() {
+        System.out.println();
+        traversePreOrder(this.root);
+    }
+
+    /**
+     * A wrapper over the postorder traversal method
+     */
+    public void postOrderTraversal() {
+        System.out.println();
+        traversePostOrder(this.root);
+    }
+
+    private void traversePostOrder(BSTNode node) {
+        if (node == null) {
+            return;
+        }
+        traversePostOrder(node.getLeftChild());
+        traversePostOrder(node.getRightChild());
+        System.out.print(node.getData() + " ");
+    }
+
+    /**
+     * Preorder traversal of a Binary Tree
+     *
+     * @param node
+     */
+    private void traversePreOrder(BSTNode node) {
+
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.getData() + " ");
+        traversePreOrder(node.getLeftChild());
+        traversePreOrder(node.getRightChild());
+    }
+
+    /**
+     * Inorder traversal of a Binary Tree
+     *
+     * @param node
+     */
+    private void traverseInOrder(BSTNode node) {
+
+        if (node == null) {
+            return;
 
         }
+        traverseInOrder(node.getLeftChild());
+        System.out.print(node.getData() + " ");
+        traverseInOrder(node.getRightChild());
+
     }
 
 
